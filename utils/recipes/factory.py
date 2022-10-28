@@ -5,6 +5,7 @@ def rand_ratio():
 
 def make_recipe():
     return {
+        'id': '1',
         'title': 'arroz',
         'description': 'Fazendo arroz',
         'preparation_time': '2',
