@@ -1,10 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from utils.recipes.factory import make_recipe
+from recipes.models import Recipe
 
 def home(request):
+    recipes = Recipe.objects.all().order_by('-id')
+
     return render(request, 'recipes/pages/home.html', context= {
-            'recipes': [make_recipe() for _ in range(10)],
+            'recipes': recipes,
     })
 
 def recipes(request, id):
